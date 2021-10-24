@@ -19,7 +19,7 @@ record _×_ {ℓ ℓ'} (A : Setoid ℓ) (B : Setoid ℓ') : Setoid (ℓ ⊔ ℓ'
     fst : A
     snd : B
 
-open _×_
+open _×_ public
 
 ×Path : {A×B C×D : A × B} → fst A×B ≡ fst C×D → snd A×B ≡ snd C×D → A×B ≡ C×D
 ×Path refl refl = refl

@@ -54,3 +54,11 @@ module PropReasoning where
 
 postulate
   funExt : {B : A → Setoid ℓ₂} → {f g : (x : A) → B x} → ((x : A) → f x ≡ g x) → f ≡ g
+
+record isContr {ℓ : _} (A : Setoid ℓ) : Setoid ℓ where
+  constructor contract
+  field
+    center : A
+    paths : (y : A) → center ≡ y
+
+open isContr public

@@ -5,10 +5,6 @@ open import Categorical.Functor
 open import Prelude
 open import Prelude.Equality
 
-private
-  variable
-    o₁ ℓ₁ o₂ ℓ₂ o₃ ℓ₃ : Level
-
 -- ---------------------------------------------------------------------------------------------------------------------
 
 module _ {o ℓ o' ℓ'} {C : Category o ℓ} {D : Category o' ℓ'} where
@@ -17,6 +13,7 @@ module _ {o ℓ o' ℓ'} {C : Category o ℓ} {D : Category o' ℓ'} where
     module D = Category D
 
   record NaturalTransformation (F G : Functor C D) : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+    eta-equality
     private
       module F = Functor F
       module G = Functor G

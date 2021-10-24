@@ -20,12 +20,12 @@ record Category (o ℓ : Level) : Setoid (lsuc (o ⊔ ℓ)) where
     _∘_ : {X Y Z : Ob} → Hom Y Z → Hom X Y → Hom X Z
 
   field
-    id← : {X Y : Ob} (f : Hom Y X) → id ∘ f ≡ f
-    id→ : {X Y : Ob} (f : Hom X Y) → f ∘ id ≡ f
+    id← : {X Y : Ob} {f : Hom Y X} → id ∘ f ≡ f
+    id→ : {X Y : Ob} {f : Hom X Y} → f ∘ id ≡ f
 
   field
-    assoc← : {X Y Z W : Ob} (f : Hom X Y) (g : Hom Y Z) (h : Hom Z W) → h ∘ (g ∘ f) ≡ (h ∘ g) ∘ f
-    assoc→ : {X Y Z W : Ob} (f : Hom X Y) (g : Hom Y Z) (h : Hom Z W) → (h ∘ g) ∘ f ≡ h ∘ (g ∘ f)
+    assoc← : {X Y Z W : Ob} {f : Hom X Y} {g : Hom Y Z} {h : Hom Z W} → h ∘ (g ∘ f) ≡ (h ∘ g) ∘ f
+    assoc→ : {X Y Z W : Ob} {f : Hom X Y} {g : Hom Y Z} {h : Hom Z W} → (h ∘ g) ∘ f ≡ h ∘ (g ∘ f)
 
 open Category
 
@@ -36,5 +36,5 @@ id     (C ^op) = id C
 _∘_    (C ^op) = λ f g → _∘_ C g f
 id←    (C ^op) = id→ C
 id→    (C ^op) = id← C
-assoc← (C ^op) = λ f g h → assoc→ C h g f
-assoc→ (C ^op) = λ f g h → assoc← C h g f
+assoc← (C ^op) {h = h} = assoc→ C {f = h}
+assoc→ (C ^op) {h = h} = assoc← C {f = h}

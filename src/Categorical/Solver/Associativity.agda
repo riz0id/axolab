@@ -33,7 +33,7 @@ eval (t ∙ u) f = eval t (eval u f)
 
 eval≡ : {A B : Ob} (e : Tm A B) → eval e id ≡ embed e
 eval≡ idt     = refl
-eval≡ ⟦ t ⟧   = id→ _
+eval≡ ⟦ t ⟧   = id→
 eval≡ (t ∙ u) =
   eval t (eval u id)    ≡⟨ sym (lemma t (eval u id)) ⟩
   eval t id ∘ eval u id ≡⟨ ap₂ _∘_ (eval≡ t) (eval≡ u) ⟩
@@ -42,11 +42,11 @@ eval≡ (t ∙ u) =
     open PropReasoning
 
     lemma : {A B C : Ob} (e : Tm B C) (f : Hom A B) → eval e id ∘ f ≡ eval e f
-    lemma idt     f = id← _
-    lemma ⟦ t ⟧   f = ap (_∘ f) (id→ t)
+    lemma idt     f = id←
+    lemma ⟦ t ⟧   f = ap (_∘ f) id→
     lemma (t ∙ u) f =
       eval t (eval u id) ∘ f      ≡⟨ ap (_∘ f) (sym (lemma t (eval u id))) ⟩
-      (eval t id ∘ eval u id) ∘ f ≡⟨ assoc→ _ _ _ ⟩
+      (eval t id ∘ eval u id) ∘ f ≡⟨ assoc→ ⟩
       eval t id ∘ eval u id ∘ f   ≡⟨ ap (_ ∘_) (lemma u f) ⟩
       eval t id ∘ eval u f        ≡⟨ lemma t (eval u f) ⟩
       eval (t ∙ u) f              ∎
