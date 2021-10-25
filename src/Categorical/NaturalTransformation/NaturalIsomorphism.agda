@@ -2,7 +2,7 @@ module Categorical.NaturalTransformation.NaturalIsomorphism where
 
 open import Categorical.Category
 open import Categorical.Functor
-open import Categorical.NaturalTransformation
+open import Categorical.NaturalTransformation.Core
 open import Categorical.Morphism.Isomorphism
 open import Prelude
 open import Prelude.Equality
