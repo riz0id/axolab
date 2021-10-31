@@ -1,3 +1,4 @@
+
 module Categorical.Category.Bundle.Monoidal where
 
 open import Categorical.Category

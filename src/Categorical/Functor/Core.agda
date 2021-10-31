@@ -7,7 +7,6 @@ open import Prelude.Equality
 -- ---------------------------------------------------------------------------------------------------------------------
 
 record Functor {o ℓ o' ℓ'} (C : Category o ℓ) (D : Category o' ℓ') : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
-  eta-equality
 
   private
     module C = Category C

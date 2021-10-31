@@ -22,6 +22,41 @@ F₁   Id f   = f
 F-id Id     = refl
 F-∘  Id _ _ = refl
 
+module _ {C : Category o₁ ℓ₁} {D : Category o₂ ℓ₂} {F G : Functor C D} where
+  private
+    module C = Category C
+    module D = Category D
+
+    module F = Functor F
+    module G = Functor G
+
+  Functor≡ : Functor.F₀ F ≡ Functor.F₀ G → (∀ {A B} (f : C.Hom A B) → F.₁ f ≡* G.₁ f) → F ≡ G
+  Functor≡ refl p = lemma (funExtInvis λ _ → funExtInvis λ _ → funExt λ f → p f)
+    where
+      rep : Functor C D → Setoid (o₁ ⊔ ℓ₁ ⊔ ℓ₂)
+      rep H = {A B : C.Ob} (f : C.Hom A B) → D.Hom (H.₀ A) (H.₀ B) where
+        module H = Functor H
+
+      Fid≡ : Functor C D → Setoid (o₁ ⊔ ℓ₂)
+      Fid≡ H = {x : C.Ob} → H.₁ (C.id {x}) ≡ D.id {H.₀ x} where
+        module H = Functor H
+
+      F∘≡ : Functor C D → Setoid _
+      F∘≡ H = ∀ {X Y Z} (f : C.Hom Y Z) (g : C.Hom X Y) → H.₁ (f C.∘ g) ≡ H.₁ f D.∘ H.₁ g where
+        module H = Functor H
+
+      F₁≡ : _≡*_ {_} {A = rep F} F.₁ {B = rep G} G.₁
+      F₁≡ = funExtInvis λ x → funExtInvis λ y → funExt λ f → p f
+
+      lemma : _≡*_ {_} {A = rep F} F.₁ {B = rep G} G.₁ → F ≡* G
+      lemma refl = go (funExtInvis λ _ → UIP _ _) q where
+        q = funExtInvis λ _ → funExtInvis λ _ → funExtInvis λ _ → funExt λ _ → funExt λ _ → UIP _ _
+
+        go : _≡*_ {_} {A = Fid≡ F} F.F-id {B = Fid≡ G} G.F-id
+          → _≡*_ {_} {A = F∘≡ F} (Functor.F-∘ F) {B = F∘≡ G} (Functor.F-∘ G)
+          → F ≡* G
+        go refl refl = refl
+
 module _ {C : Category o₁ ℓ₁} {D : Category o₂ ℓ₂} {E : Category o₃ ℓ₃} where
   private
     module C = Category C

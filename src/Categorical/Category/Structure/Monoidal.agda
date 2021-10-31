@@ -56,7 +56,7 @@ record Monoidal : Setoid (o ⊔ ℓ) where
   open module associator {X} {Y} {Z} = Isomorphism (associator {X} {Y} {Z}) public
     renaming ( from to assoc→⨂   -- (X ⨂₀ Y) ⨂₀ Z → X ⨂₀ (Y ⨂₀ Z)
              ; to   to assoc←⨂ ) -- X ⨂₀ (Y ⨂₀ Z) → (X ⨂₀ Y) ⨂₀ Z
-
+よ
   field
     unitor←commute : {X Y : Ob} {f : Hom X Y} → unit⇒id← ∘ (C.id ⨂₁ f) ≡ f ∘ unit⇒id←
     unitor→commute : {X Y : Ob} {f : Hom X Y} → unit⇒id→ ∘ (f ⨂₁ C.id) ≡ f ∘ unit⇒id→

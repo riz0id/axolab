@@ -1,13 +1,12 @@
-open import Categorical.Category
+open import Axolab.Category
 
-module Categorical.Category.Structure.Cartesian {o ℓ} (C : Category o ℓ) where
+module Axolab.Category.Structure.Cartesian {o ℓ} (C : Category o ℓ) where
 
-open import Categorical.Functor
-open import Categorical.Bifunctor
-open import Categorical.Object.Terminal
-open import Prelude
-open import Prelude.Equality
-open import Prelude.Data.Product using (_,_; fst; snd)
+open import Axolab.Category.Functor
+open import Axolab.Category.Functor.Bifunctor
+open import Axolab.Category.Object.Terminal
+open import Axolab.Data.Product using (_,_; fst; snd)
+open import Axolab.Prelude
 
 open Category C
 open Functor

@@ -1,8 +1,9 @@
-module Categorical.Category.Instances.Product where
 
-open import Categorical.Category
-open import Prelude
-open import Prelude.Data.Product
+module Axolab.Category.Instances.Product where
+
+open import Axolab.Category
+open import Axolab.Data.Product
+open import Axolab.Prelude
 
 open Category
 

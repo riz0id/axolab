@@ -31,4 +31,4 @@ record Exponential (A B : Ob) : Setoid (o ⊔ ℓ) where
 
   field
     β : (X×A : Product X A) → {g : Hom (Product.A×B X×A) B} →
-        {!eval ∘ ?!} ≡ g
+        eval ∘ {![ ? ⇒ ? ]!} ≡ g

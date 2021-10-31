@@ -1,10 +1,10 @@
-module Categorical.Functor.Adjoint.Core where
 
-open import Categorical.Category
-open import Categorical.Functor
-open import Categorical.NaturalTransformation
-open import Prelude
-open import Prelude.Equality
+module Axolab.Category.Functor.Adjoint where
+
+open import Axolab.Category
+open import Axolab.Category.Functor
+open import Axolab.Category.NaturalTransformation
+open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
