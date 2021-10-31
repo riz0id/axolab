@@ -1,5 +1,10 @@
-module Categorical.Functor.Adjoint where
 
-open import Categorical.Functor.Adjoint.Core public
+module Prelude.Data.Bool where
+
+open import Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
+
+data Bool : Setoid where
+  true  : Bool
+  false : Bool
