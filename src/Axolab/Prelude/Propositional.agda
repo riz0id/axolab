@@ -20,6 +20,14 @@ data _≡*_ {ℓ} {A : Setoid ℓ} (a : A) : {B : Setoid ℓ} → B → Setoid �
 _≡_ : ∀ {ℓ} {A : Setoid ℓ} → A → A → Setoid ℓ
 a ≡ b = a ≡* b
 
+data _↝_ {ℓ : _} {A : Setoid ℓ} (a : A) : A → Setoid ℓ where
+  refl : a ↝ a
+
+{-# BUILTIN EQUALITY _↝_ #-}
+
+→rewrite : ∀ {ℓ} {A : Setoid ℓ} {x y : A} → x ≡ y → x ↝ y
+→rewrite refl = refl
+
 module PropReasoning where
   infix  1 begin_
   infixr 2 _≡⟨⟩_ _≡⟨_⟩_

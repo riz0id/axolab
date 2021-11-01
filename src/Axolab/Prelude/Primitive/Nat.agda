@@ -1,8 +1,9 @@
 
-module Axolab.Data.Nat.Core where
+module Axolab.Prelude.Primitive.Nat where
 
 open import Agda.Builtin.Nat public
-  using    ( zero; suc; _+_; _*_ )
-  renaming ( Nat to ℕ )
+  using    ( Nat; zero; suc
+           ; _+_; _*_ )
+  renaming ( _-_ to _∸_; _==_ to _≡?_; _<_ to _<?_ )
 
 -- ---------------------------------------------------------------------------------------------------------------------

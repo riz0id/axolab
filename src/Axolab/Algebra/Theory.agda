@@ -1,13 +1,15 @@
 
 module Axolab.Algebra.Theory where
 
+open import Axolab.Data.Product
+open import Axolab.Prelude.Primitive.Fin
+open import Axolab.Prelude.Primitive.Nary
+open import Axolab.Prelude.Primitive.Nat
+open import Axolab.Prelude.Primitive.Vect as Vect
+open import Axolab.Prelude
+
 open import Axolab.Algebra.Theory.Signature public
 open import Axolab.Algebra.Theory.Term public
-open import Axolab.Data.Fin
-open import Axolab.Data.Nat.Core
-open import Axolab.Data.Product
-open import Axolab.Data.Vect as Vect
-open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +23,7 @@ record Theory (ℓ ℓ' : Level) : Setoid (lsuc (ℓ ⊔ ℓ')) where
   open Signature signature public
 
   field
-    l-arities : laws → ℕ
+    l-arities : laws → Nat
     l-relates : (l : laws) → Term signature (Fin (l-arities l)) × Term signature (Fin (l-arities l))
 
 record Interpretation {o ℓ ℓ'} (A : Setoid o) (S : Theory ℓ ℓ') : Setoid (o ⊔ ℓ ⊔ ℓ') where
@@ -51,4 +53,15 @@ record Homomorphism {o o' ℓ ℓ'} (S : Theory o o') (M : Model S ℓ) (M' : Mo
   field
     function    : Dom.model → Cod.model
     homomorphic : (o : S.operations) (args : Vect Dom.model (S.o-arities o)) →
-      function (Dom.interp o args) ≡ Cod.interp o (Vect.map function args)
+      function (Dom.interp o $⟨ args ⟩) ≡ Cod.interp o $⟨ Vect.map function args ⟩
+
+open Homomorphism
+
+Homomorphism≡ : ∀ {o ℓ o' ℓ'} {S : Theory ℓ ℓ'} {M : Model S o} {M' : Model S o'} {H H' : Homomorphism S M M'}
+  → (∀ x → function H x ≡ function H' x) → H ≡* H'
+Homomorphism≡ {H  = record { function = _; homomorphic = r}}
+              {H' = record { function = _; homomorphic = s}}
+              p
+  rewrite →rewrite (funExt p)
+  rewrite →rewrite (funExt λ o → funExt λ a → UIP (r o a) (s o a))
+  = refl

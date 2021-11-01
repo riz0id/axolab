@@ -1,9 +1,10 @@
 
-module Axolab.Data.Vect where
+module Axolab.Data.Bool where
 
-open import Axolab.Data.Fin
-open import Axolab.Data.Nat
 open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
+data Bool : Setoid where
+  true  : Bool
+  false : Bool
