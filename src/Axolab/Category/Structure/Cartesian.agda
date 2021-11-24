@@ -1,3 +1,4 @@
+
 open import Axolab.Category
 
 module Axolab.Category.Structure.Cartesian {o ℓ} (C : Category o ℓ) where
