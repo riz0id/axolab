@@ -6,7 +6,6 @@ module Axolab.Algebra.Theory.Instances.Endo {o ℓ} (C : Category o ℓ) where
 open import Axolab.Algebra.Theory
 open import Axolab.Algebra.Theory.Structure.Monoid
 open import Axolab.Prelude
-open import Axolab.Prelude.Primitive.Vect
 
 open Category C
 open Interpretation

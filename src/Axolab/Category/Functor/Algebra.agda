@@ -14,6 +14,8 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
+syntax Algebra T = T -Algebra
+
 record Algebra (F : Endofunctor C) : Setoid (o ⊔ ℓ) where
   private
     module F = Functor F
