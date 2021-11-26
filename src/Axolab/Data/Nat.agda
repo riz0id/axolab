@@ -2,7 +2,6 @@
 module Axolab.Data.Nat where
 
 open import Axolab.Algebra.Theory
-open import Axolab.Algebra.Monoid
 open import Axolab.Data.Vect
 open import Axolab.Prelude.Primitive.Nat public
 open import Axolab.Prelude
