@@ -6,10 +6,10 @@ open import Axolab.Prelude.Primitive
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-data Fin : Nat → Setoid where
-  fzero : {n : Nat} → Fin (suc n)
-  fsuc  : {n : Nat} (i : Fin n) → Fin (suc n)
+data Fin : ℕ → Setoid where
+  fzero : {n : ℕ} → Fin (suc n)
+  fsuc  : {n : ℕ} (i : Fin n) → Fin (suc n)
 
-fromNat : (n : Nat) → Fin (suc n)
+fromNat : (n : ℕ) → Fin (suc n)
 fromNat zero    = fzero
 fromNat (suc n) = fsuc (fromNat n)

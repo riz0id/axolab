@@ -9,7 +9,7 @@ open import Axolab.Prelude.Primitive.Vect
 
 -- 0ℓ-level n-arity lambdas.
 --
-λ⟨_⟩_⇒_ : {ℓ : Level} → Nat → Setoid ℓ → Setoid ℓ → Setoid ℓ
+λ⟨_⟩_⇒_ : {ℓ : Level} → ℕ → Setoid ℓ → Setoid ℓ → Setoid ℓ
 λ⟨ zero  ⟩ A ⇒ B = B
 λ⟨ suc n ⟩ A ⇒ B = A → λ⟨ n ⟩ A ⇒ B
 
