@@ -31,13 +31,13 @@ id→    (C ×Cat D)                 = ×Path (id→ C) (id→ D)
 assoc← (C ×Cat D)                 = ×Path (assoc← C) (assoc← D)
 assoc→ (C ×Cat D)                 = ×Path (assoc→ C) (assoc→ D)
 
-_×F_ : (F : Functor C₁ D₁) (G : Functor C₂ D₂) → Functor (C₁ ×Cat C₂) (D₁ ×Cat D₂)
-_×F_ {D₁ = D₁} F G =
-  record { F₀   = λ where (A , B) → F.₀ A , G.₀ B
-         ; F₁   = λ where (f , g) → F.₁ f , G.₁ g
-         ; F-id = ×Path (subst (_≡ id D₁) {!ap!} {!!}) {!!}
-         ; F-∘  = λ where (f , g) (h , i) → {!!}
-         }
-  where
-    module F = Functor F
-    module G = Functor G
+-- _×F_ : (F : Functor C₁ D₁) (G : Functor C₂ D₂) → Functor (C₁ ×Cat C₂) (D₁ ×Cat D₂)
+-- _×F_ {D₁ = D₁} F G =
+--   record { F₀   = λ where (A , B) → F.₀ A , G.₀ B
+--          ; F₁   = λ where (f , g) → F.₁ f , G.₁ g
+--          ; F-id = ×Path (subst (_≡ id D₁) {!!} {!!}) {!!}
+--          ; F-∘  = λ where (f , g) (h , i) → {!!}
+--          }
+--   where
+--     module F = Functor F
+--     module G = Functor G
