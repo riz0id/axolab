@@ -30,11 +30,11 @@ record Proset (ℓ : Level) : Setoid (o ⊔ lsuc ℓ) where
   resp~/→ : {y' : A} → x ~ y → y ≡ y' → x ~ y'
   resp~/→ x≤y y~y' = trans~ x≤y (reflexive~ y~y')
 
-  id~/← : (x~y : x ~ y) → trans~ refl~ x~y ≡ x~y
-  id~/← x~y = isProp~ (trans~ refl~ x~y) x~y
+  id~/← : (x~y : x ~ y) → trans~ x~y refl~ ≡ x~y
+  id~/← x~y = isProp~ (trans~ x~y refl~) x~y
 
-  id~/→ : (x~y : x ~ y) → x~y ≡ trans~ refl~ x~y
-  id~/→ x~y = isProp~ x~y (trans~ refl~ x~y)
+  id~/→ : (x~y : x ~ y) → trans~ refl~ x~y ≡ x~y
+  id~/→ x~y = isProp~ (trans~ refl~ x~y) x~y
 
   assoc~/← : (x~y : x ~ y) (y~z : y ~ z) (z~w : z ~ w) → trans~ x~y (trans~ y~z z~w) ≡ trans~ (trans~ x~y y~z) z~w
   assoc~/← x~y y~z z~w = isProp~ (trans~ x~y (trans~ y~z z~w)) (trans~ (trans~ x~y y~z) z~w)
