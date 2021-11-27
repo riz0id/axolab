@@ -27,13 +27,13 @@ Functor≡ {o₁} {ℓ₁} {C} {o₂} {ℓ₂} {D} {F} {G} refl p =
     module F = Functor F
     module G = Functor G
 
-    rep : Functor C D → Setoid (o₁ ⊔ ℓ₁ ⊔ ℓ₂)
+    rep : Functor C D → Set (o₁ ⊔ ℓ₁ ⊔ ℓ₂)
     rep H = {A B : C.Ob} (f : C.Hom A B) → D.Hom (Functor.F₀ H A) (Functor.F₀ H B)
 
-    Fid≡ : Functor C D → Setoid (o₁ ⊔ ℓ₂)
+    Fid≡ : Functor C D → Set (o₁ ⊔ ℓ₂)
     Fid≡ H = {x : C.Ob} → Functor.F₁ H (C.id {x}) ≡ D.id {Functor.F₀ H x}
 
-    F∘≡ : Functor C D → Setoid _
+    F∘≡ : Functor C D → Set _
     F∘≡ H = ∀ {X Y Z} (f : C.Hom Y Z) (g : C.Hom X Y) → Functor.F₁ H (f C.∘ g) ≡ Functor.F₁ H f D.∘ Functor.F₁ H g
 
     F₁≡ : _≡*_ {_} {A = rep F} F.₁ {B = rep G} G.₁

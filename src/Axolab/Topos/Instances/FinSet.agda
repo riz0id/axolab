@@ -1,8 +1,4 @@
 
-module Axolab.Data.Vect where
-
-open import Axolab.Data.Fin
-open import Axolab.Prelude
+module Axolab.Topos.Instances.FinSet where
 
 -- ---------------------------------------------------------------------------------------------------------------------
-

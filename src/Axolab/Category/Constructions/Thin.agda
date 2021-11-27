@@ -1,9 +1,9 @@
 
 open import Axolab.Prelude
-open import Axolab.Relation.Poset
+open import Axolab.Relation.Structure.Poset
 
 module Axolab.Category.Constructions.Thin
-  {o ℓ} {A : Setoid o}
+  {o ℓ} {A : Set o}
   (poset : Poset A ℓ)
   where
 

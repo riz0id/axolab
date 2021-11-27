@@ -18,7 +18,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Monoidal : Setoid (o ⊔ ℓ) where
+record Monoidal : Set (o ⊔ ℓ) where
   infixr 5 _⨂₀_ _⨂₁_
 
   field

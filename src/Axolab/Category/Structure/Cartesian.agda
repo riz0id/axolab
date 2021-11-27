@@ -18,7 +18,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Cartesian : Setoid (o ⊔ ℓ) where
+record Cartesian : Set (o ⊔ ℓ) where
   infixr 5 _×₀_ _×₁_
 
   field

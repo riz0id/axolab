@@ -50,7 +50,7 @@ F-∘  -+ F - f g =
     module F = Functor F
     open PropReasoning
 
-record Ideal : Setoid (o ⊔ ℓ) where
+record Ideal : Set (o ⊔ ℓ) where
   field
     T     : Endofunctor C
     ideal : (T F∘ -+ T -) ⇒ T
@@ -136,7 +136,7 @@ record Ideal : Setoid (o ⊔ ℓ) where
 --       T.₁ (inj₁ C.∘ f +₁ inj₂ C.∘ T.₁ f) C.∘ T.₁ (inj₁ C.∘ g +₁ inj₂ C.∘ T.₁ g) ∎
 
 
--- record Ideal : Setoid (o ⊔ ℓ) where
+-- record Ideal : Set (o ⊔ ℓ) where
 --   field
 --     T      : Endofunctor (C ^op)
 --     counit : (T F∘ -+ T -) ⇒ T

@@ -26,7 +26,7 @@ open Functor
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record CPC {o ℓ} (Time : Setoid o) (M : Category o ℓ) : Setoid (lsuc (o ⊔ ℓ)) where
+record CPC {o ℓ} (Time : Set o) (M : Category o ℓ) : Set (lsuc (o ⊔ ℓ)) where
   field
     MCCCC : CCCC M
     poset : DecidablePoset Time ℓ
@@ -109,10 +109,10 @@ record CPC {o ℓ} (Time : Setoid o) (M : Category o ℓ) : Setoid (lsuc (o ⊔ 
   -- _+₁_ : {A B X : Ob} → Hom A X → Hom B X → Hom (A +₀ B) X
   -- f +₁ g = Coproduct.[_,_] (coproducts _ _) f g
 
--- CPC : ∀ {o ℓ} {T : Setoid o} → DecidablePoset T ℓ → CCCC o ℓ → Category (o ⊔ ℓ) (o ⊔ ℓ)
+-- CPC : ∀ {o ℓ} {T : Set o} → DecidablePoset T ℓ → CCCC o ℓ → Category (o ⊔ ℓ) (o ⊔ ℓ)
 -- CPC T B = Functors (TemporalIndex T) (CCCC.U B)
 
--- module _ {o ℓ} {T : Setoid o} (decPoset : DecidablePoset T ℓ) where
+-- module _ {o ℓ} {T : Set o} (decPoset : DecidablePoset T ℓ) where
 --   open module decPoset = DecidablePoset decPoset
 
 --   Ix : Category (o ⊔ ℓ) (o ⊔ ℓ)
@@ -121,7 +121,7 @@ record CPC {o ℓ} (Time : Setoid o) (M : Category o ℓ) : Setoid (lsuc (o ⊔ 
 --   W∞ : Category o ℓ
 --   W∞ = Thin (Time∞Poset decPoset)
 
---   record CCCC : Setoid (o ⊔ ℓ) where
+--   record CCCC : Set (o ⊔ ℓ) where
 --     field
 --       C
 --     field

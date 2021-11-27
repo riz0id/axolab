@@ -1,0 +1,17 @@
+#+TITLE: axolab todo-list
+
+* Todo
+
+** Universal Algebra
+- [X] Add better support for generic n-ary lambdas.
+  #+LINK: https://sci-hubtw.hkvisa.net/10.1145/3331554.3342604
+  #+NOTE: isnt possible these suck
+- [ ] Add support for hierarchical algebra.
+
+** Boolean Algebras
+- [ ] Define boolean algebras.
+- [ ] Define the category BoolAlg.
+
+** Topos
+- [ ] Define the category FinBool of finite boolean algebras.
+- [ ] Define the power-set functor from FinSet to FinBool

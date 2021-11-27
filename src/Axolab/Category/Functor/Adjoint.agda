@@ -17,7 +17,7 @@ module _ {o₁ ℓ₁ o₂ ℓ₂} {C : Category o₁ ℓ₁} {D : Category o₂
 
   syntax Adjoint F G = F ⊣ G
 
-  record Adjoint (F : Functor C D) (G : Functor D C) : Setoid (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂) where
+  record Adjoint (F : Functor C D) (G : Functor D C) : Set (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂) where
     private
       module F = Functor F
       module G = Functor G

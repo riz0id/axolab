@@ -3,7 +3,7 @@ open import Prelude
 open import Relation.Structure.Poset
 
 module Topos.Instances.Temporal.TemporalIndex
-  {o ℓ} {T : Setoid o}
+  {o ℓ} {T : Set o}
   (poset : DecidablePoset T ℓ)
   where
 
@@ -19,10 +19,10 @@ open DecidablePoset poset
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-Interval : Setoid (o ⊔ ℓ)
+Interval : Set (o ⊔ ℓ)
 Interval = Σ[ (t₀ , t₁) ∈ T × T ] t₀ ≤ t₁
 
-Process : Interval → Interval → Setoid (o ⊔ ℓ)
+Process : Interval → Interval → Set (o ⊔ ℓ)
 Process 𝑖₂ 𝑖₁ =
   let (t¹ , tₒ¹) = fst 𝑖₁
       (t² , tₒ²) = fst 𝑖₂

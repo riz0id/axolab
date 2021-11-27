@@ -9,7 +9,7 @@ open Category C
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Terminal  : Setoid (o ⊔ ℓ) where
+record Terminal  : Set (o ⊔ ℓ) where
   field
     ⊤        : Ob
     terminal : {A : Ob} → isContr (Hom A ⊤)

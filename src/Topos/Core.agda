@@ -14,7 +14,7 @@ open import Prelude.Equality
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record ElementaryTopos : Setoid (lsuc (o ⊔ ℓ)) where
+record ElementaryTopos : Set (lsuc (o ⊔ ℓ)) where
   field
     cartesian        : Cartesian C
     finitelyComplete : FinitelyComplete C

@@ -15,7 +15,7 @@ module _ {o ℓ o' ℓ'} {C : MonoidalCategory o ℓ} {D : MonoidalCategory o' �
     module C = MonoidalCategory C
     module D = MonoidalCategory D
 
-  record MonoidalFunctor (F : Functor C.U D.U) : Setoid (o ⊔ ℓ ⊔ o ⊔ ℓ') where
+  record MonoidalFunctor (F : Functor C.U D.U) : Set (o ⊔ ℓ ⊔ o ⊔ ℓ') where
     eta-equality
     private module F = Functor F
 

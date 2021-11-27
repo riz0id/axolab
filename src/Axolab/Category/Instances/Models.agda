@@ -17,11 +17,11 @@ _-Models : {s ℓ ℓ' : Level} → Theory ℓ ℓ' → Category (lsuc s ⊔ ℓ
 _-Models {s} S = cat where
   module S = Theory S
 
-  apVectId : ∀ {ℓ n} {A : Setoid ℓ} (xs : Vect A n) → map (λ x → x) xs ≡ xs
+  apVectId : ∀ {ℓ n} {A : Set ℓ} (xs : Vect A n) → map (λ x → x) xs ≡ xs
   apVectId nil      = refl
   apVectId (x ∷ xs) = ap (x ∷_) (apVectId xs)
 
-  apVect∘ : ∀ {a b c n} {A : Setoid a} {B : Setoid b} {C : Setoid c}
+  apVect∘ : ∀ {a b c n} {A : Set a} {B : Set b} {C : Set c}
     → (g : B → C) (f : A → B) (xs : Vect A n) → map (λ x → g (f x)) xs ≡ map g (map f xs)
   apVect∘ _ _ nil      = refl
   apVect∘ _ _ (x ∷ xs) = ap (_ ∷_) (apVect∘ _ _ xs)

@@ -14,7 +14,7 @@ open Cartesian
 -- ---------------------------------------------------------------------------------------------------------------------
 
 Set : (o : Level) → Category (lsuc o) o
-Ob     (Set o)       = Setoid o
+Ob     (Set o)       = Set o
 Hom    (Set o) A B   = A → B
 id     (Set o) A     = A
 _∘_    (Set o) g f A = g (f A)

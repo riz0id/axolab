@@ -18,7 +18,7 @@ infixr 2 Monomorphism
 
 syntax Monomorphism A B = A ↪ B
 
-record Monomorphism (A B : Ob) : Setoid (o ⊔ ℓ) where
+record Monomorphism (A B : Ob) : Set (o ⊔ ℓ) where
   field
     into  : Hom A B
     monic : into ∘ g₁ ≡ into ∘ g₂ → g₁ ≡ g₂

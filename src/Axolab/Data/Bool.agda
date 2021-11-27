@@ -5,6 +5,6 @@ open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-data Bool : Setoid where
+data Bool : Set where
   true  : Bool
   false : Bool

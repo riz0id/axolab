@@ -19,7 +19,7 @@ module _ (C : Category o₁ ℓ₁) (D : Category o₂ ℓ₂) (E : Category o�
     module D = Category D
     module E = Category E
 
-  Bifunctor : Setoid (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂ ⊔ o₃ ⊔ ℓ₃)
+  Bifunctor : Set (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂ ⊔ o₃ ⊔ ℓ₃)
   Bifunctor = Functor (C ×Cat D) E
 
 

@@ -7,7 +7,7 @@ open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record MonoidalCategory (o ℓ : Level) : Setoid (lsuc (o ⊔ ℓ)) where
+record MonoidalCategory (o ℓ : Level) : Set (lsuc (o ⊔ ℓ)) where
   eta-equality
 
   field

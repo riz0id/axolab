@@ -12,12 +12,12 @@ open Theory
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-data GroupOp : Setoid where
+data GroupOp : Set where
   unit : GroupOp
   inv  : GroupOp
   ⨂    : GroupOp
 
-data GroupLaw : Setoid where
+data GroupLaw : Set where
   associativity  : GroupLaw
   left-identity  : GroupLaw
   right-identity : GroupLaw
@@ -54,5 +54,5 @@ l-relates group =
       → op ⨂ (var fzero ∷ op inv (var fzero ∷ nil) ∷ nil)
       , op unit nil }
 
-Group : (ℓ : Level) → Setoid (lsuc ℓ)
+Group : (ℓ : Level) → Set (lsuc ℓ)
 Group = Model group

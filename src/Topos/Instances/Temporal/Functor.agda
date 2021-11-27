@@ -5,7 +5,7 @@ open import Axolab.Prelude
 postulate DecidablePoset : ∀ {ℓ} (A : Set ℓ) (ℓ' : Level) → Set
 
 module Topos.Instances.Temporal.Functor
-  {o₁ ℓ₁ o₂ ℓ₂} {T : Setoid o₁}
+  {o₁ ℓ₁ o₂ ℓ₂} {T : Set o₁}
   (T-poset : DecidablePoset T ℓ₁)
   (C       : Category o₂ ℓ₂)
   where

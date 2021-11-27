@@ -16,7 +16,7 @@ module Commutation (C : Category o ℓ) where
 
   open Category C
 
-  [_⇒_]⟨_≡_⟩ : (A B : Ob) → Hom A B → Hom A B → Setoid ℓ
+  [_⇒_]⟨_≡_⟩ : (A B : Ob) → Hom A B → Hom A B → Set ℓ
   [ A ⇒ B ]⟨ f ≡ g ⟩ = f ≡ g
 
   connect : ∀ {A C : Ob} (B : Ob) → Hom A B → Hom B C → Hom A C

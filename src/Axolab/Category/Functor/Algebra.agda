@@ -16,7 +16,7 @@ private
 
 syntax Algebra T = T -Algebra
 
-record Algebra (F : Endofunctor C) : Setoid (o ⊔ ℓ) where
+record Algebra (F : Endofunctor C) : Set (o ⊔ ℓ) where
   private
     module F = Functor F
 
@@ -24,7 +24,7 @@ record Algebra (F : Endofunctor C) : Setoid (o ⊔ ℓ) where
     U   : Ob
     alg : Hom (F.₀ U) U
 
-record Homomorphism {H : Endofunctor C} (F G : Algebra H) : Setoid (o ⊔ ℓ) where
+record Homomorphism {H : Endofunctor C} (F G : Algebra H) : Set (o ⊔ ℓ) where
   private
     module H = Functor H
 

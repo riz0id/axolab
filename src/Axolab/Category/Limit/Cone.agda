@@ -20,7 +20,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Cone : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+record Cone : Set (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
   field
     apex    : Ob
     ψ       : (X : J.Ob) → Hom apex (F.₀ X)
@@ -37,7 +37,7 @@ Cone≡ {A} {B} refl p = lemma (funExt p)
         lemma' : _≡_ {A = {a b : _} (f : J.Hom a b) → F.₁ f ∘ ψ A a ≡ ψ B b} (commute A) (commute B) → A ≡* B
         lemma' refl = refl
 
-record ConeHom (A B : Cone) : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+record ConeHom (A B : Cone) : Set (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
   field
     hom     : Hom (apex A) (apex B)
     commute : {o : _} → ψ B o ∘ hom ≡ ψ A o

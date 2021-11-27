@@ -16,7 +16,7 @@ module _ {o ℓ o' ℓ'} {C : Category o ℓ} {D : Category o' ℓ'} where
     module C = Category C
     module D = Category D
 
-  record NaturalIsomorphism (F G : Functor C D) : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+  record NaturalIsomorphism (F G : Functor C D) : Set (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
     eta-equality
     private
       module F = Functor F

@@ -12,7 +12,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Functor (C : Category o ℓ) (D : Category o' ℓ') : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+record Functor (C : Category o ℓ) (D : Category o' ℓ') : Set (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
   private module C = Category C
   private module D = Category D
 
@@ -32,7 +32,7 @@ record Functor (C : Category o ℓ) (D : Category o' ℓ') : Setoid (o ⊔ ℓ �
 
 open Functor
 
-Endofunctor : (C : Category o ℓ) → Setoid (o ⊔ ℓ)
+Endofunctor : (C : Category o ℓ) → Set (o ⊔ ℓ)
 Endofunctor C = Functor C C
 
 Id : Functor C C

@@ -3,8 +3,8 @@ module Axolab.Data.Nat.Properties where
 
 open import Axolab.Data.Nat as ℕ
 open import Axolab.Prelude
-open import Axolab.Relation.Proset ℕ
-open import Axolab.Relation.Poset ℕ
+open import Axolab.Relation.Structure.Proset ℕ
+open import Axolab.Relation.Structure.Poset ℕ
 
 open Proset
 open Poset

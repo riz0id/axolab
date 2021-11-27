@@ -15,7 +15,7 @@ open Model
 
 infixr 5 _⋉_
 
-record Tree {o} (A : Setoid o) : Setoid o where
+record Tree {o} (A : Set o) : Set o where
   inductive
   constructor _⋉_
 
@@ -23,8 +23,8 @@ record Tree {o} (A : Setoid o) : Setoid o where
     root   : A
     leaves : List (Tree A)
 
-Forest : {o : Level} → Setoid o → Setoid o
+Forest : {o : Level} → Set o → Set o
 Forest A = List (Tree A)
 
-leaf : ∀ {o} {A : Setoid o} → A → Tree A
+leaf : ∀ {o} {A : Set o} → A → Tree A
 leaf x = x ⋉ nil

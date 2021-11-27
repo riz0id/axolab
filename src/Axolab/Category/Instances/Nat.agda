@@ -14,3 +14,4 @@ open Category
 --
 Nat : Category 0ℓ 0ℓ
 Nat = Thin ℕ-poset
+

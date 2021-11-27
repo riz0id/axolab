@@ -22,7 +22,7 @@ open ElementaryTopos E
   }
 
 module Internal where
-  data Type : Setoid o where
+  data Type : Set o where
     ob  : Ob → Type
     _⟶_ : Type → Type → Type
     ω   : Type
@@ -32,7 +32,7 @@ module Internal where
   τ⟦ x ⟶ y ⟧ = [ τ⟦ x ⟧ , τ⟦ y ⟧ ]
   τ⟦ ω     ⟧ = Ω
 
-  data Context : Setoid o where
+  data Context : Set o where
     _,_ : Context → Type → Context
     nil : Context
 
@@ -40,7 +40,7 @@ module Internal where
   Γ⟦ x , y ⟧ = Γ⟦ x ⟧ ×₀ τ⟦ y ⟧
   Γ⟦ nil   ⟧ = ⊤
 
-  data Var : Context → Type → Setoid o where
+  data Var : Context → Type → Set o where
     here  : {τ   : Type} {Γ : Context} → Var (Γ , τ) τ
     there : {τ σ : Type} {Γ : Context} → Var Γ τ → Var (Γ , σ) τ
 
@@ -48,7 +48,7 @@ module Internal where
   var⟦ here    ⟧ = π₂
   var⟦ there v ⟧ = var⟦ v ⟧ ∘ π₁
 
-  data _⊢_ : Context → Type → Setoid o where
+  data _⊢_ : Context → Type → Set o where
     ref  : {Γ : Context} {τ : Type} → Var Γ τ → Γ ⊢ τ
     lam  : {Γ : _} {τ σ : _} → (Γ , τ) ⊢ σ → Γ ⊢ (τ ⟶ σ)
     app  : {Γ : _} {τ σ : _} → Γ ⊢ (τ ⟶ σ) → Γ ⊢ τ → Γ ⊢ σ

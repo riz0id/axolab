@@ -5,7 +5,7 @@ open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Top {ℓ} : Setoid ℓ where
+record Top {ℓ} : Set ℓ where
   instance constructor tt
 
 {-# BUILTIN UNIT Top #-}

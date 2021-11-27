@@ -14,7 +14,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Monad : Setoid (o ⊔ ℓ) where
+record Monad : Set (o ⊔ ℓ) where
   field
     M    : Endofunctor C
     unit : Id ⇒ M

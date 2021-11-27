@@ -13,7 +13,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Equalizer (f g : Hom A B) (e : Hom E A) : Setoid (o ⊔ ℓ) where
+record Equalizer (f g : Hom A B) (e : Hom E A) : Set (o ⊔ ℓ) where
   field
     commutes : f ∘ e ≡ g ∘ e
     limiting : {e' : Hom E' A} → f ∘ e' ≡ g ∘ e' → Hom E' E

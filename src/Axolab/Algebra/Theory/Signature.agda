@@ -8,12 +8,12 @@ open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Signature (ℓ : Level) : Setoid (lsuc ℓ) where
+record Signature (ℓ : Level) : Set (lsuc ℓ) where
   field
-    operations : Setoid ℓ
-    o-arities  : operations → Nat
+    ops     : Set ℓ
+    arities : ops → ℕ
 
-open Signature
+open Signature public
 
-Interprets : ∀ {ℓ ℓ'} (A : Setoid ℓ) (S : Signature ℓ') → Setoid (ℓ ⊔ ℓ')
-Interprets A S = (o : operations S) → λ⟨ o-arities S o ⟩ A ⇒ A
+Interprets : ∀ {ℓ ℓ'} (A : Set ℓ) (S : Signature ℓ') → Set (ℓ ⊔ ℓ')
+Interprets A S = (o : ops S) → λ⟨ arities S o ⟩ A ⇒ A

@@ -11,5 +11,5 @@ open Functor
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-Presheaf : ∀ {o ℓ} (C : Category o ℓ) (ℓ' : Level) → Setoid (o ⊔ ℓ ⊔ lsuc ℓ')
+Presheaf : ∀ {o ℓ} (C : Category o ℓ) (ℓ' : Level) → Set (o ⊔ ℓ ⊔ lsuc ℓ')
 Presheaf C ℓ' = Functor (C ^op) (Set ℓ')

@@ -11,7 +11,7 @@ import Categorical.Diagram.Pullback
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record SubobjectClassifier : Setoid (o ⊔ ℓ) where
+record SubobjectClassifier : Set (o ⊔ ℓ) where
   private
     open module Ca = CartesianCategory Ca
 

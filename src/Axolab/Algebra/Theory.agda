@@ -15,18 +15,18 @@ open import Axolab.Algebra.Theory.Term public
 
 infix 4 Interpretation
 
-record Theory (ℓ ℓ' : Level) : Setoid (lsuc (ℓ ⊔ ℓ')) where
+record Theory (ℓ ℓ' : Level) : Set (lsuc (ℓ ⊔ ℓ')) where
   field
     signature : Signature ℓ
-    laws      : Setoid ℓ'
+    laws      : Set ℓ'
 
   open Signature signature public
 
   field
-    l-arities : laws → Nat
+    l-arities : laws → ℕ
     l-relates : (l : laws) → Term signature (Fin (l-arities l)) × Term signature (Fin (l-arities l))
 
-record Interpretation {o ℓ ℓ'} (A : Setoid o) (S : Theory ℓ ℓ') : Setoid (o ⊔ ℓ ⊔ ℓ') where
+record Interpretation {o ℓ ℓ'} (A : Set o) (S : Theory ℓ ℓ') : Set (o ⊔ ℓ ⊔ ℓ') where
   open Theory S
 
   field
@@ -36,14 +36,14 @@ record Interpretation {o ℓ ℓ'} (A : Setoid o) (S : Theory ℓ ℓ') : Setoid
 
 syntax Interpretation A S = A ⊨ S
 
-record Model {ℓ ℓ'} (S : Theory ℓ ℓ') (o : Level) : Setoid (lsuc o ⊔ ℓ ⊔ ℓ') where
+record Model {ℓ ℓ'} (S : Theory ℓ ℓ') (o : Level) : Set (lsuc o ⊔ ℓ ⊔ ℓ') where
   field
-    model  : Setoid o
+    model  : Set o
     models : model ⊨ S
 
   open Interpretation models public
 
-record Homomorphism {o o' ℓ ℓ'} (S : Theory o o') (M : Model S ℓ) (M' : Model S ℓ') : Setoid (o ⊔ o' ⊔ ℓ ⊔ ℓ') where
+record Homomorphism {o o' ℓ ℓ'} (S : Theory o o') (M : Model S ℓ) (M' : Model S ℓ') : Set (o ⊔ o' ⊔ ℓ ⊔ ℓ') where
   private
     module S = Theory S
 
@@ -52,7 +52,7 @@ record Homomorphism {o o' ℓ ℓ'} (S : Theory o o') (M : Model S ℓ) (M' : Mo
 
   field
     function    : Dom.model → Cod.model
-    homomorphic : (o : S.operations) (args : Vect Dom.model (S.o-arities o)) →
+    homomorphic : (o : {!!}) (args : Vect Dom.model (S.arities o)) →
       function (Dom.interp o $⟨ args ⟩) ≡ Cod.interp o $⟨ Vect.map function args ⟩
 
 open Homomorphism

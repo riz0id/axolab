@@ -14,11 +14,11 @@ open Theory
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-data MonoidOp : Setoid where
+data MonoidOp : Set where
   unit : MonoidOp
   ⨂    : MonoidOp
 
-data MonoidLaw : Setoid where
+data MonoidLaw : Set where
   associativity  : MonoidLaw
   left-identity  : MonoidLaw
   right-identity : MonoidLaw
@@ -44,7 +44,7 @@ l-relates monoid =
       → var fzero
       , op ⨂ (var fzero ∷ op unit nil ∷ nil) }
 
-Monoid : (ℓ : Level) → Setoid (lsuc ℓ)
+Monoid : (ℓ : Level) → Set (lsuc ℓ)
 Monoid = Model monoid
 
 Mon : (ℓ : Level) → Category (lsuc ℓ) ℓ

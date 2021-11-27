@@ -1,0 +1,21 @@
+
+#+TITLE: Axolab Directory Structure
+
+* Axolab
+** Algebra
+** Category
+*** Diagram
+**** Cone
+**** Equalizer
+**** Pullback
+*** Functor
+**** Adjoint
+**** Bifunctor
+*** Morphism
+**** Epimorphism
+**** Isomorphism
+**** Monomorphism
+*** Object
+*** Structure
+** Data
+** Relation

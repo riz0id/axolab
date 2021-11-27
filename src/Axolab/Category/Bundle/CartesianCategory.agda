@@ -7,7 +7,7 @@ open import Axolab.Prelude
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record CartesianCategory (o ℓ : Level) : Setoid (lsuc (o ⊔ ℓ)) where
+record CartesianCategory (o ℓ : Level) : Set (lsuc (o ⊔ ℓ)) where
   eta-equality
 
   field

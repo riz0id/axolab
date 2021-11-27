@@ -13,7 +13,7 @@ open Category C
 
 syntax Isomorphism X Y = X ≅ Y
 
-record Isomorphism (X Y : Ob) : Setoid (o ⊔ ℓ) where
+record Isomorphism (X Y : Ob) : Set (o ⊔ ℓ) where
   eta-equality
   field
     from : Hom X Y

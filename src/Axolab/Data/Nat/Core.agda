@@ -2,12 +2,12 @@
 module Axolab.Data.Nat.Core where
 
 open import Axolab.Prelude
-open import Axolab.Prelude.Primitive.Nat public
 
-infix 6 _≤_
+open import Agda.Builtin.Nat public
+  using    ( suc; zero
+           ; _+_ )
+  renaming ( Nat to ℕ
+           ; _-_ to _∸_
+           ; _==_ to _≡ᵇ_; _<_ to _<ᵇ_ )
 
 -- ---------------------------------------------------------------------------------------------------------------------
-
-data _≤_ : ℕ → ℕ → Setoid where
-  ≤-zero : {n   : ℕ} → 0 ≤ n
-  ≤-suc  : {m n : ℕ} → m ≤ n → suc m ≤ suc n

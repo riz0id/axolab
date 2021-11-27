@@ -1,12 +1,22 @@
 
 module Axolab.Data.Nat where
 
-open import Axolab.Algebra.Theory
 open import Axolab.Data.Nat.Core public
-open import Axolab.Data.Vect
 open import Axolab.Prelude
 
+infix 6 _≤_ _<_
+
 -- ---------------------------------------------------------------------------------------------------------------------
+
+data _≤_ : ℕ → ℕ → Set where
+  ≤-zero : {n   : ℕ} → 0 ≤ n
+  ≤-suc  : {m n : ℕ} → m ≤ n → suc m ≤ suc n
+
+≤-pred : ∀ {m n} → suc m ≤ suc n → m ≤ n
+≤-pred (≤-suc m≤n) = m≤n
+
+_<_ : ℕ → ℕ → Set
+m < n = suc m ≤ n
 
 -- ℕ[+]⊨monoid : ℕ ⊨ monoid
 -- ℕ[+]⊨monoid = mon where

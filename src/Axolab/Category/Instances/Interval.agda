@@ -13,7 +13,7 @@ open Category
 
 infixr 5 _𝟚⇒_
 
-data _𝟚⇒_ : Bool → Bool → Setoid where
+data _𝟚⇒_ : Bool → Bool → Set where
   I⇒I : ∀ {e} → e 𝟚⇒ e
   𝟘⇒𝟙 : false 𝟚⇒ true
 

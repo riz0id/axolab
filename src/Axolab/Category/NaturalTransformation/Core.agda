@@ -15,7 +15,7 @@ module _ {o ℓ o' ℓ'} {C : Category o ℓ} {D : Category o' ℓ'} where
   infixr 6 NaturalTransformation
   syntax NaturalTransformation F G = F ⇒ G
 
-  record NaturalTransformation (F G : Functor C D) : Setoid (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
+  record NaturalTransformation (F G : Functor C D) : Set (o ⊔ ℓ ⊔ o' ⊔ ℓ') where
     eta-equality
     private
       module F = Functor F

@@ -2,13 +2,11 @@
 
 module Axolab.Prelude.Primitive where
 
+open import Agda.Primitive public
+
 -- ---------------------------------------------------------------------------------------------------------------------
 
-open import Agda.Primitive public
-  using    ( Level; lsuc; lzero; _⊔_ )
-  renaming ( Set to Setoid; Setω to Setoidω )
-
-record Lift {ℓ ℓ' : _} (A : Setoid ℓ) : Setoid (ℓ ⊔ ℓ') where
+record Lift {ℓ ℓ' : _} (A : Set ℓ) : Set (ℓ ⊔ ℓ') where
   constructor lift
   field
     unlift : A

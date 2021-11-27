@@ -7,13 +7,13 @@ open import Axolab.Prelude
 
 infixl 60 _^op
 
-record Category (o ℓ : Level) : Setoid (lsuc (o ⊔ ℓ)) where
+record Category (o ℓ : Level) : Set (lsuc (o ⊔ ℓ)) where
   eta-equality
   infixr 9 _∘_
 
   field
-    Ob  : Setoid o
-    Hom : Ob → Ob → Setoid ℓ
+    Ob  : Set o
+    Hom : Ob → Ob → Set ℓ
 
   field
     id  : {X : Ob} → Hom X X

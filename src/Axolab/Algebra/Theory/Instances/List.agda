@@ -14,19 +14,19 @@ open Model
 
 infixr 5 _++_
 
-data List {o} (A : Setoid o) : Setoid o where
+data List {o} (A : Set o) : Set o where
   nil : List A
   _∷_ : A → List A → List A
 
-map : ∀ {o} {A B : Setoid o} → (A → B) → List A → List B
+map : ∀ {o} {A B : Set o} → (A → B) → List A → List B
 map f nil      = nil
 map f (x ∷ xs) = f x ∷ map f xs
 
-_++_ : ∀ {o} {A : Setoid o} → List A → List A → List A
+_++_ : ∀ {o} {A : Set o} → List A → List A → List A
 nil      ++ ys = ys
 (x ∷ xs) ++ ys = x ∷ (xs ++ ys)
 
-list⊨monoid : ∀ {o} {A : Setoid o} → List A ⊨ monoid
+list⊨monoid : ∀ {o} {A : Set o} → List A ⊨ monoid
 interp list⊨monoid =
   λ { unit → nil
     ; ⨂    → λ f g → f ++ g }

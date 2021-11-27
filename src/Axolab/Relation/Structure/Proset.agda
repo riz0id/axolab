@@ -1,7 +1,7 @@
 
 open import Axolab.Prelude
 
-module Axolab.Relation.Proset {o} (A : Setoid o) where
+module Axolab.Relation.Structure.Proset {o} (A : Set o) where
 
 private
   variable
@@ -9,11 +9,12 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Proset (ℓ : Level) : Setoid (o ⊔ lsuc ℓ) where
-
+record Proset (ℓ : Level) : Set (o ⊔ lsuc ℓ) where
   eta-equality
+  infix 6 _~_
+
   field
-    _~_        : A → A → Setoid ℓ
+    _~_        : A → A → Set ℓ
     reflexive~ : x ≡ y → x ~ y
     trans~     : x ~ y → y ~ z → x ~ z
 

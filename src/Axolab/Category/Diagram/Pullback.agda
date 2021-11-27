@@ -14,7 +14,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Pullback (p₁ : Hom P X) (p₂ : Hom P Y) (f : Hom X Z) (g : Hom Y Z) : Setoid (o ⊔ ℓ) where
+record Pullback (p₁ : Hom P X) (p₂ : Hom P Y) (f : Hom X Z) (g : Hom Y Z) : Set (o ⊔ ℓ) where
   field
     commutes : f ∘ p₁ ≡ g ∘ p₂
     limiting : f ∘ q₁ ≡ g ∘ q₂ → Hom Q P

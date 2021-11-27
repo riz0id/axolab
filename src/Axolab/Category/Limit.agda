@@ -21,7 +21,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-Limit : {J : Category o₁ ℓ₁} {C : Category o₂ ℓ₂} → Functor J C → Setoid (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂)
+Limit : {J : Category o₁ ℓ₁} {C : Category o₂ ℓ₂} → Functor J C → Set (o₁ ⊔ ℓ₁ ⊔ o₂ ⊔ ℓ₂)
 Limit F = Terminal (Cones F)
 
 module _ {F : Functor J C} (G : Functor C D) where
@@ -43,10 +43,10 @@ module _ {F : Functor J C} (G : Functor C D) where
     G.₁ (F.₁ f C.∘ ψ c X)       ≡⟨ ap G.₁ (commute c f) ⟩
     G.₁ (ψ c Y)                 ∎
 
-  PreservesLimit : Limit F → Setoid _
+  PreservesLimit : Limit F → Set _
   PreservesLimit lim = isContr ({A : Cone _} → ConeHom (G F∘ F) A (mapCone (⊤ lim)))
 
 module _ {o₁ ℓ₁ o₂ ℓ₂ o₃ ℓ₃ : Level} {C : Category o₂ ℓ₂} {D : Category o₃ ℓ₃} where
 
-  Continuous : Functor C D → Setoid (lsuc (o₁ ⊔ ℓ₁) ⊔ o₂ ⊔ ℓ₂ ⊔ o₃ ⊔ ℓ₃)
+  Continuous : Functor C D → Set (lsuc (o₁ ⊔ ℓ₁) ⊔ o₂ ⊔ ℓ₂ ⊔ o₃ ⊔ ℓ₃)
   Continuous F = {J : Category o₁ ℓ₁} {dia : Functor J C} (L : Limit dia) → PreservesLimit F L

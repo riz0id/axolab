@@ -1,9 +1,9 @@
 
 open import Axolab.Prelude
 
-module Axolab.Relation.Poset {o} (A : Setoid o) where
+module Axolab.Relation.Structure.Poset {o} (A : Set o) where
 
-open import Axolab.Relation.Proset A
+open import Axolab.Relation.Structure.Proset A
 
 private
   variable
@@ -11,7 +11,7 @@ private
 
 -- ---------------------------------------------------------------------------------------------------------------------
 
-record Poset (ℓ : Level) : Setoid (o ⊔ lsuc ℓ) where
+record Poset (ℓ : Level) : Set (o ⊔ lsuc ℓ) where
   eta-equality
   field
     proset : Proset ℓ

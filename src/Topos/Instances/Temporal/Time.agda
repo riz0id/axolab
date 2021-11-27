@@ -2,7 +2,7 @@ open import Prelude
 open import Relation.Structure.Poset
 
 module Topos.Instances.Temporal.Time
-  {o ℓ} {T : Setoid o}
+  {o ℓ} {T : Set o}
   (T-poset : DecidablePoset T ℓ)
   where
 
@@ -29,11 +29,11 @@ open Proset
 
 infix 4 _≤∞_
 
-data Time∞ : Setoid o where
+data Time∞ : Set o where
   time : T → Time∞
   inf  : Time∞
 
-data _≤∞_ : Time∞ → Time∞ → Setoid ℓ where
+data _≤∞_ : Time∞ → Time∞ → Set ℓ where
   inj≤ : {t₁ t₂ : T} → t₁ ≼ t₂ → time t₁ ≤∞ time t₂
   inj∞ : {t₁ : Time∞} → t₁ ≤∞ inf
 
